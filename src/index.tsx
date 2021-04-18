@@ -1,5 +1,6 @@
 import '@babel/polyfill'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import Application from './app'
 
-ReactDOM.render(<div>Hello World</div>, document.getElementById('root'))
+ReactDOM.render(<Application />, document.getElementById('root'))
