@@ -12,8 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/tugi93/compado-exercise.git"
   },
-  "keywords": [],
-  "author": "Tugay Serinken",
+  "author": "tugi93",
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",

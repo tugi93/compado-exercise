@@ -1,3 +1,4 @@
+import config from 'config'
 import { formatProducts } from "../utils/products"
 import { Product } from "../types"
 
@@ -7,7 +8,7 @@ export const searchProducts = async (
   abortSignal?: AbortSignal
 ): Promise<Product[]> => {
   const result = await fetch(
-    `https://svcs.sandbox.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=WandoInt-217b-42d8-a699-e79808dd505e&RESPONSE-DATA-FORMAT=JSON&keywords=${encodeURIComponent(text)}`,
+    `${config.api.endpoint}/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=${config.api.serviceVersion}&SECURITY-APPNAME=${config.api.appId}&RESPONSE-DATA-FORMAT=JSON&keywords=${encodeURIComponent(text)}`,
     {
       signal: abortSignal,
     }
