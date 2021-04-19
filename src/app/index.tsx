@@ -1,14 +1,14 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { HashRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import { ProductSearch } from './pages/ProductSearch/ProductSearch'
 
 import store from './store'
 
 export default () => (
   <Provider store={store}>
-    <HashRouter>
+    <BrowserRouter>
       <Route path='/' component={ProductSearch} />
-    </HashRouter>
+    </BrowserRouter>
   </Provider>
 )
