@@ -5,11 +5,13 @@ module.exports = {
   entry: {
     main: './src/index.tsx',
   },
-
   resolve: {
     alias: {
       config: path.resolve(__dirname, '../src/environments/'),
     },
+    modules: [path.resolve('./node_modules')],
+    mainFields: ['browser', 'main', 'module'],
+    symlinks: true,
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 
