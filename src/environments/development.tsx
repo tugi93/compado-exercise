@@ -1,8 +1,7 @@
 module.exports = {
   debounce: 500,
   api: {
-    endpoint: 'https://compado-exercise-api.vietken.tech',
-    appId: 'WandoInt-217b-42d8-a699-e79808dd505e',
+    endpoint: 'http://localhost:4000',
     serviceVersion: '1.0.0'
   }
 }
