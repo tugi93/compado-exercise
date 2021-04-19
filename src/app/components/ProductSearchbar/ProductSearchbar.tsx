@@ -55,9 +55,11 @@ export const Searchbar = (props) => {
 const Wrapper = styled.div`
   position: relative;
   margin: auto 0;
+  display: flex;
 `
 
 const Input = styled.input`
+  flex: 0 1 100%;
   position: relative;
   visibility: visible;
   background: #f3f3f3;
