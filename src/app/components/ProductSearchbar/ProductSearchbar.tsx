@@ -1,21 +1,52 @@
-import React from 'react'
+// import './SearchBar.sass'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import { useSearch } from '../../hooks/useSearch'
+import { searchProducts, setErrorMessage, setIsLoading, setProducts, setSearchText } from '../../services'
 import { Icon } from '../Icon/Icon'
 
-export const Searchbar = ({...props}) => {
+export const Searchbar = (props) => {
+  const dispatch = useDispatch()
+  const { search, inputText, setInputText } = useSearch(searchProducts)
+
+  useEffect(() => {
+    if (search.result) {
+      const action = setProducts(search.result)
+      dispatch(action)
+    }
+  }, [search?.result])
+
+  useEffect(() => {
+    const action = setIsLoading(search.loading)
+    dispatch(action)
+  }, [search?.loading])
+
+  useEffect(() => {
+    const action = setErrorMessage(search?.error?.message)
+    dispatch(action)
+  }, [search?.error?.message])
+
+  useEffect(() => {
+    const action = setSearchText(inputText)
+    dispatch(action)
+  }, [inputText])
+
   return (
-    <Wrapper {...props}>
-      <Input 
-        type='text' 
-        value=''
-        onChange={e => console.log(e.target.value)}
-        placeholder="Search products" 
+    <Wrapper className='searchbar-wrapper' {...props}>
+      <Input
+        className='searchbar-input'
+        type='text'
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
+        placeholder='Search products'
       />
       <SearchButton
+        className='searchbar-button'
         data-var='vsButton'
         aria-label='Search'
       >
-        <SearchIcon source={require('../../../assets/search.svg')} />
+        <SearchIcon className='search-icon' source={require('../../../assets/search.svg')} />
       </SearchButton>
     </Wrapper>
   )
@@ -46,7 +77,7 @@ const Input = styled.input`
   }
 `
 
-const SearchButton = styled.button `
+const SearchButton = styled.button`
   position: absolute;
   top: 2px;
   left: 0px;

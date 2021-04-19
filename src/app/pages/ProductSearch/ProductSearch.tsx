@@ -1,14 +1,20 @@
+// import './ProductSearch.sass'
 import React from 'react'
-import styled, {createGlobalStyle} from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { Header } from '../../components/Header/Header'
+import { ProductList } from '../../components/ProductList/ProductList'
+import { Sidebar } from '../../components/Sidebar/Sidebar'
 
 export const ProductSearch = () => {
   return (
-    <Wrapper>
+    <Wrapper className='product-search-wrapper'>
       <GlobalStyle />
       <Header />
-      <Content />
-    </Wrapper> 
+      <Content className='product-search-content'>
+        <Sidebar />
+        <ProductList />
+      </Content>
+    </Wrapper>
   )
 }
 

@@ -1,12 +1,19 @@
+//import './ProductSearch.sass'
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { useActions } from '../../hooks/useActions'
 import styled from 'styled-components'
 import { Icon } from '../Icon/Icon'
+import { getIsSidebarOpen, toggleSidebar } from '../../services'
 
 export const FilterButton = () => {
+  const isSidebarOpen = useSelector(getIsSidebarOpen)
+  const actions = useActions({ toggleSidebar })
+  
   return (
-    <Button onClick={() => {}}>
-      <p>Show Filter</p>
-      <FilterIcon source={require('../../../assets/sorting_options.svg')} />
+    <Button className='filter-button' onClick={() => actions.toggleSidebar(!isSidebarOpen)}>
+      <p>{`${isSidebarOpen ? 'Hide' : 'Show'} Filter`}</p>
+      <FilterIcon className='filter-icon' source={require('../../../assets/sorting_options.svg')} />
     </Button>
   )
 }

@@ -1,12 +1,12 @@
+// import './Header.sass'
 import React  from 'react'
 import styled from 'styled-components'
 import { FilterButton } from '../FilterButton/FilterButton'
 import { Searchbar } from '../ProductSearchbar/ProductSearchbar'
 
-
 export const Header = () => {
   return (
-    <Wrapper>
+    <Wrapper className='header-wrapper'>
       <FilterButton/>
       <ProductSearchbar />
     </Wrapper>
