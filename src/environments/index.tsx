@@ -1,5 +1,4 @@
 let config
-console.log(process.env)
 switch (process.env.NODE_ENV) {   
   case 'production':
     config = require('./production')
@@ -8,7 +7,4 @@ switch (process.env.NODE_ENV) {
   default:
     config = require('./development')
 }
-
-console.log(config)
-
 export default config
